@@ -13,22 +13,10 @@ import PlaceDetails from "../PlaceDetails/PlaceDetails";
 
 import useStyles from "./styles.js";
 
-const List = () => {
+const List = ({ places }) => {
   const classes = useStyles();
   const { type, setType } = useState("restaurants");
   const { rating, setRating } = useState("");
-
-  const places = [
-    { name: "Cool Place" },
-    { name: "Best Bear" },
-    { name: "Best chicken" },
-    { name: "Cool Place" },
-    { name: "Best Bear" },
-    { name: "Best chicken" },
-    { name: "Cool Place" },
-    { name: "Best Bear" },
-    { name: "Best chicken" },
-  ];
 
   return (
     <div className={classes.container}>
@@ -37,7 +25,11 @@ const List = () => {
       </Typography>
       <FormControl className={classes.formControl}>
         <InputLabel>Type</InputLabel>
-        <Select value={type} onChange={(e) => setType(e.target.value)}>
+        <Select
+          id="type"
+          value={type}
+          onChange={(e) => setType(e.target.value)}
+        >
           <MenuItem value="restaurants">Restaurants</MenuItem>
           <MenuItem value="hotels">Hotels</MenuItem>
           <MenuItem value="attractions">Attractions</MenuItem>
@@ -45,7 +37,11 @@ const List = () => {
       </FormControl>
       <FormControl className={classes.formControl}>
         <InputLabel>Rating</InputLabel>
-        <Select value={rating} onChange={(e) => setRating(e.target.value)}>
+        <Select
+          id="rating"
+          value={rating}
+          onChange={(e) => setRating(e.target.value)}
+        >
           <MenuItem value={0}>All rating</MenuItem>
           <MenuItem value={3}>Above 3.0</MenuItem>
           <MenuItem value={4}>Above 4.0</MenuItem>
